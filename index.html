@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thomas Jensen - Resume</title>
+    <style>
+        :root {
+            --background-color: #f4f4f4;
+            --text-color: #333;
+            --header-color: #007acc;
+            --section-bg: #fff;
+            --button-bg: #007acc;
+            --button-text: #fff;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        h2 {
+            border-bottom: 2px solid var(--header-color);
+            padding-bottom: 5px;
+            cursor: pointer;
+        }
+        .section-content {
+            display: none;
+            padding: 10px;
+            background: var(--section-bg);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        a {
+            color: var(--header-color);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .theme-toggle {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .theme-toggle button {
+            margin: 5px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            background-color: var(--button-bg);
+            color: var(--button-text);
+        }
+        .dark-mode {
+            --background-color: #1e1e1e;
+            --text-color: #fff;
+            --header-color: #7b61ff;
+            --section-bg: #2c2c2c;
+            --button-bg: #7b61ff;
+            --button-text: #1e1e1e;
+        }
+        .blue-mode {
+            --background-color: #e3f2fd;
+            --text-color: #0d47a1;
+            --header-color: #1565c0;
+            --section-bg: #bbdefb;
+            --button-bg: #1565c0;
+            --button-text: #e3f2fd;
+        }
+    </style>
+    <script>
+        function toggleSection(section) {
+            let content = section.nextElementSibling;
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+        function setTheme(theme) {
+            document.documentElement.className = theme;
+            localStorage.setItem("resumeTheme", theme);
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedTheme = localStorage.getItem("resumeTheme");
+            if (savedTheme) {
+                document.documentElement.className = savedTheme;
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Thomas Jensen</h1>
+        <p><strong>Phone:</strong> (907) 782-8495</p>
+        <p><strong>Email:</strong> <a href="mailto:thomas.jensen@usu.edu">thomas.jensen@usu.edu</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/thomas-jensen-6a887424b/" target="_blank">Thomas Jensen</a></p>
+    </header>
+    
+    <div class="theme-toggle">
+        <button onclick="setTheme('')">Light Mode</button>
+        <button onclick="setTheme('dark-mode')">Dark Mode</button>
+        <button onclick="setTheme('blue-mode')">Blue Mode</button>
+    </div>
+
+    <section>
+        <h2 onclick="toggleSection(this)">Education</h2>
+        <div class="section-content">
+            <p><strong>Utah State University, Jon M. Huntsman School of Business</strong></p>
+            <p>Bachelor of Science: Data Analytics, Information Systems (Cybersecurity Emphasis)</p>
+            <p>Minor: Anticipatory Intelligence | Expected Graduation: May 2026</p>
+            <p>GPA: 3.55 (while working 20 hours per week)</p>
+            <p>Member: Association for Information Systems, Student Organization for Cybersecurity</p>
+        </div>
+    </section>
+
+    <section>
+        <h2 onclick="toggleSection(this)">Technical Skills</h2>
+        <div class="section-content">
+            <p><strong>Proficient:</strong> SQL, Microsoft Excel (Certified 2023), Tableau (Certified 2023), Python, Linux (Kali and Ubuntu), Data Analytics</p>
+            <p><strong>Intermediate:</strong> C#, JavaScript, Power BI, Cybersecurity Principles</p>
+            <p><strong>Basic:</strong> Adobe Suite, MacOS, Machine Learning Techniques</p>
+        </div>
+    </section>
+    <section>
+        <h2 onclick="toggleSection(this)">Work Experience</h2>
+        <div class="section-content">
+            <h3>Space Dynamics Laboratory | North Logan, UT</h3>
+            <p><strong>Information Assurance Assistant</strong> | January 2025 – Present</p>
+            <ul>
+                <li>Conduct risk analysis and vulnerability assessments to ensure compliance with cybersecurity policies.</li>
+                <li>Assist in security documentation and audits to maintain regulatory standards.</li>
+                <li>Collaborate with security teams to analyze security incidents and recommend mitigation strategies.</li>
+                <li>Maintain and track security inventory, ensuring adherence to organizational policies.</li>
+            </ul>
+            <p><strong>Security Assistant</strong> | July 2023 - January 2025</p>
+            <ul>
+                <li>Managed and improved inventory tracking for approximately 2000 items in accountability.</li>
+                <li>Performed analytics on 10,000+ data points monthly for insider threat awareness.</li>
+                <li>Provided counter-intelligence briefings to employees before foreign travel.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2 onclick="toggleSection(this)">Projects</h2>
+        <div class="section-content">
+            <h3>AWS-Hosted Resume Website | 2025</h3>
+            <ul>
+                <li>Designed and deployed an html file to a server hosted through AWS.</li>
+                <li>Set up instance on AWS for hosting, including the use of a key-pair for ssh connection to the site.</li>
+                <li>Learned how to use Apache web server for basic web hosting and firewall setup.</li>
+            </ul>
+            <h3>Stock Market Trading Simulation | 2023</h3>
+            <ul>
+                <li>Developed and implemented trading strategies using Bollinger Bands, Mean Reversion, and Moving Average Crossover in an AWS environment with Python.</li>
+                <li>Achieved simulated returns of up to 40% annually.</li>
+                <li>Managed data pipelines and server-side logic in a Linux environment on AWS.</li>
+            </ul>
+        </div>
+    </section>
+
+<a href="about.html">About Me</a>
+
+</body>
+</html>
