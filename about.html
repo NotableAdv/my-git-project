@@ -1,115 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, inital-scale-1.0">
-	<title>About Me</title>
-	<style>
-		:root {
-			--background-color: #f4f4f4;
-			--text-color: #333;
-			--header-color: #007acc;
-			--section-bg: #fff;
-			--button-bg: #007acc;
-			--button-text: #fff;
-		}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        :root {
+            --background-color: #f4f4f4;
+            --text-color: #333;
+            --header-color: #007acc;
+            --section-bg: #fff;
+            --button-bg: #007acc;
+            --button-text: #fff;
+        }
 
-		body {
-			font-family: 'Roboto', sans-serif;
-			max-width: 800px;
-			margin: auto;
-			padding: 20px;
-			background-color: var(--background-color);
-			color: var(--text-color);
-		}
-		h2 {
-			border-bottom: 2px solid var(--header-color);
-			padding-bottom: 5px;
-			cursor: pointer;
-		}
-		.section-content {
-			display: none;
-			padding: 10px;
-			background: var(--section-bg);
-			border-radius: 5px;
-			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-		}
-		header {
-			text-align: center;
-			padding-bottom: 20px;
-		}
-		a {
-			color: var(--header-color);
-			text-decoration: none;
-		}
-		a:hover {
-			text-decoration: underline;
-		}
-		.theme-toggle {
-			display: flex;
-			justify-content: center;
-			margin-bottom: 20px;
-		}
-		.theme-toggle button {
-			margin: 5px;
-			padding: 10px;
-			border: none;
-			cursor: pointer;
-			font-size: 16px;
-			border-radius: 5px;
-			background-color: var(--button-bg);
-			color: var(--button-text);
-		}
-		.dark-mode {
-			--background-color: #1e1e1e;
-			--text-color: #fff;
-			--header-color: #7b61ff;
-			--section-bg: #2c2c2c;
-			--button-bg: #7b61ff;
-			--button-text: #1e1e1e;
-		}
-		.blue-mode {
-			--background-color: #e3f2fd;
-			--text-color: #0d47a1;
-			--header-color: #1565c0;
-			--section-bg: #bbdefb;
-			--button-bg: #1565c0;
-			--button-text: #e3f2fd;
-		}
-	</style>
-	<script>
-		function toggleSelection(section) {
-			let content = section.nextElementSibling;
-			if (content.style.display === "none" || content.style.display === "") {
-				content.style.display = "block";
-			} else {
-				content.style.display = "none";
-			}
+        body {
+            font-family: 'Roboto', sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        h2 {
+            border-bottom: 2px solid var(--header-color);
+            padding-bottom: 5px;
+            cursor: pointer;
+        }
+        .section-content {
+            display: none;
+            padding: 10px;
+            background: var(--section-bg);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        a {
+            color: var(--header-color);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .theme-toggle {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .theme-toggle button {
+            margin: 5px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            background-color: var(--button-bg);
+            color: var(--button-text);
+        }
+        .dark-mode {
+            --background-color: #1e1e1e;
+            --text-color: #fff;
+            --header-color: #7b61ff;
+            --section-bg: #2c2c2c;
+            --button-bg: #7b61ff;
+            --button-text: #1e1e1e;
+        }
+        .blue-mode {
+            --background-color: #e3f2fd;
+            --text-color: #0d47a1;
+            --header-color: #1565c0;
+            --section-bg: #bbdefb;
+            --button-bg: #1565c0;
+            --button-text: #e3f2fd;
+        }
+    </style>
+    <script>
+        function setTheme(theme) {
+            document.documentElement.className = theme;
+            localStorage.setItem("resumeTheme", theme);
+        }
 
-		function setTheme(theme) {
-			document.documentElement.className = theme;
-			localStorage.setItem("resumeTheme", theme);
-		}
-
-		document.addEventListener("DOMContentLoaded", () => {
-			const savedTheme = localStorage.getItem("resumeTheme");
-			if (savedTheme) {
-				document.documentElement.className = savedTheme;
-			}
-		});
-	</script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedTheme = localStorage.getItem("resumeTheme");
+            if (savedTheme) {
+                document.documentElement.className = savedTheme;
+            }
+        });
+    </script>
 </head>
 <body>
-	<header>
-		<h1>About Thomas Jensen</h1>
-		<p>This is an additional page for the resume website.</p>
-		<a href="index.html">Back to Resume</a>
-	</header>
+    <header>
+        <h1>About Thomas Jensen</h1>
+        <p>This is an additional page for the resume website.</p>
+        <a href="index.html">Back to Resume</a>
+    </header>
 
-	<div class="theme-toggle">
-		<button onclick="setTheme(' ')">Light Mode</button>
-		<button onclick="setTheme('dark-mode')">Dark Mode</button>
-		<button onclick="setTheme('blue-mode')">Blue Mode</button>
-	</div>
+    <div class="theme-toggle">
+        <button onclick="setTheme('')">Light Mode</button>
+        <button onclick="setTheme('dark-mode')">Dark Mode</button>
+        <button onclick="setTheme('blue-mode')">Blue Mode</button>
+    </div>
 </body>
 </html>
