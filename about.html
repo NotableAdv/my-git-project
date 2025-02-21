@@ -85,14 +85,16 @@
 			} else {
 				content.style.display = "none";
 			}
+
 		function setTheme(theme) {
 			document.documentElement.className = theme;
 			localStorage.setItem("resumeTheme", theme);
 		}
+
 		document.addEventListener("DOMContentLoaded", () => {
 			const savedTheme = localStorage.getItem("resumeTheme");
 			if (savedTheme) {
-				document.documentElement.className = savedThemel
+				document.documentElement.className = savedTheme;
 			}
 		});
 	</script>
